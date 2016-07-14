@@ -42,12 +42,29 @@ module.exports = function(grunt) {
 				expand: true
 			}]
 		}
-	}
+	},
+	postcss: {
+		options: {
+			map: {
+				inline: false, // save all sourcemaps as separate files...
+				annotation: 'css/maps/' // ...to the specified directory
+			},
+
+        processors: [
+			require('autoprefixer')({browsers: ['last 3 versions']}), // add vendor prefixes
+			//require('cssnano')() // minify the result
+        ]
+      },
+      dist: {
+		src: 'css/*.css',
+      }
+    }
   });
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-postcss');
   // Default task.
-  grunt.registerTask('build', 'Convert Jade templates into html templates', ['jade','less','copy']);
+  grunt.registerTask('build', 'Convert Jade templates into html templates', ['jade','less','copy','postcss']);
 };

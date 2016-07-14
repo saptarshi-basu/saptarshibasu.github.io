@@ -20,4 +20,24 @@
   top: 40%;
   left: 40%;
   position: absolute;
+  -webkit-animation: slideUp 4s;
+          animation: slideUp 4s;
 }
+@-webkit-keyframes slideUp {
+  from {
+    top: 45%;
+  }
+  to {
+    top: 40%;
+  }
+}
+@keyframes slideUp {
+  from {
+    top: 45%;
+  }
+  to {
+    top: 40%;
+  }
+}
+
+/*# sourceMappingURL=maps/techsnippet.css.map */
