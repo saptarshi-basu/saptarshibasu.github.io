@@ -4,10 +4,10 @@
 .frontpage {
   left: -20%;
   top: -75%;
-  width: 120%;
-  height: 175%;
+  width: 1700px;
+  height: 1150px;
   position: absolute;
-  background: url(../img/Fotolia_107889582_Subscription_Monthly_M.jpg);
+  background: url(../img/Fotolia_107889582_Subscription_Monthly_M.jpg) white no-repeat;
 }
 .frontheader {
   color: white;
