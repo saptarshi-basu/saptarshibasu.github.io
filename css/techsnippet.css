@@ -34,7 +34,7 @@
   r: 49;
   fill: transparent;
   stroke: white;
-  opacity: 0.5;
+  stroke-opacity: 0.5;
   stroke-width: 2px;
 }
 .frontbanner {
@@ -79,7 +79,10 @@
 }
 .exploretext {
   stroke: white;
-  opacity: 1;
+  stroke-opacity: 1;
+  fill-opacity: 1;
+  fill: white;
+  font-size: 15px;
 }
 
 /*# sourceMappingURL=maps/techsnippet.css.map */
