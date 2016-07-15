@@ -38,7 +38,7 @@
   stroke-width: 2px;
 }
 .frontbanner {
-  top: 20%;
+  top: 150px;
   position: absolute;
   -webkit-animation: fadeIn 3s;
           animation: fadeIn 3s;
