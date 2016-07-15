@@ -40,6 +40,12 @@ module.exports = function(grunt) {
 				src: 'Fotolia_107889582_Subscription_Monthly_M.jpg',
 				dest: 'img/',
 				expand: true
+			},
+			{
+				cwd: 'src/font/',
+				src: 'PlayfairDisplay-Bold.otf',
+				dest: 'font/',
+				expand: true
 			}]
 		}
 	},
