@@ -17,7 +17,7 @@ module.exports = function(grunt) {
           paths: ['test/fixtures/include']
         },
         files: {
-          'css/techsnippet.css': 'src/less/techsnippet.less',
+          'css/techsnippet.css': 'src/less/techsnippet.less'
         }
       }
 	},
@@ -37,49 +37,7 @@ module.exports = function(grunt) {
 			},
 			{
 				cwd: 'src/img/',
-				src: 'Fotolia_107889582_Subscription_Monthly_M.jpg',
-				dest: 'img/',
-				expand: true
-			},
-			{
-				cwd: 'src/font/',
-				src: 'PlayfairDisplay-Bold.otf',
-				dest: 'font/',
-				expand: true
-			},
-			{
-				cwd: 'src/img/',
-				src: 'search_white.svg',
-				dest: 'img/',
-				expand: true
-			},
-			{
-				cwd: 'src/img/',
-				src: 'search_grey.svg',
-				dest: 'img/',
-				expand: true
-			},
-			{
-				cwd: 'src/img/',
-				src: 'multiply_white.svg',
-				dest: 'img/',
-				expand: true
-			},
-			{
-				cwd: 'src/img/',
-				src: 'multiply_grey.svg',
-				dest: 'img/',
-				expand: true
-			},
-			{
-				cwd: 'src/img/',
-				src: 'menu_white.svg',
-				dest: 'img/',
-				expand: true
-			},
-			{
-				cwd: 'src/img/',
-				src: 'menu_grey.svg',
+				src: '*.*',
 				dest: 'img/',
 				expand: true
 			}]
@@ -88,25 +46,50 @@ module.exports = function(grunt) {
 	postcss: {
 		options: {
 			map: {
-				inline: false, // save all sourcemaps as separate files...
-				annotation: 'css/maps/' // ...to the specified directory
+				inline: false,
+				annotation: 'css/maps/' 
 			},
 
         processors: [
-			require('autoprefixer')({browsers: ['last 3 versions']}), // add vendor prefixes
-			//require('cssnano')() // minify the result
+			require('autoprefixer')({browsers: ['last 3 versions']}), 
+			require('cssnano')() 
         ]
       },
       dist: {
 		src: 'css/*.css',
       }
-    }
-  });
+    },
+	babel: {
+        options: {
+            sourceMap: true,
+            presets: ['es2015']
+        },
+        dist: {
+            files: [{
+                expand: true,
+				cwd: 'src/js/',
+				ext: '.js',
+				src: ['utility.js','main.js'],
+				dest: 'js/'
+            }]
+        }
+    },
+
+ browserify: {
+         dist: {
+            files: {
+               "js/techsnippet.js": ["js/main.js","js/utility.js"]
+            }
+         }
+      }});
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-postcss');
+  grunt.loadNpmTasks('grunt-babel');
+  grunt.loadNpmTasks('grunt-browserify');
+  
   // Default task.
-  grunt.registerTask('build', 'Convert Jade templates into html templates', ['jade','less','copy','postcss']);
+  grunt.registerTask('build', 'Convert Jade templates into html templates', ['jade','less','copy','postcss','babel','browserify']);
 };

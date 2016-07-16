@@ -5,24 +5,29 @@ html(lang="en")
 		link(rel="stylesheet",href="css/techsnippet.css")
 		link(rel="stylesheet",href="css/bootstrap.css")
 		link(rel="stylesheet",href="css/bootstrap-theme.css")
+		script(src="js/techsnippet.js")
 		meta(name="viewport",content="width=device-width,initial-scale=1")
 	body.default-background
-		img.frontpage(src="img/Fotolia_107889582_Subscription_Monthly_M.jpg")
-		.menubar
-			.menucontainer(ontouchstart="this.classList.toggle('hover');")
-				.menu
-					.menufront
-					.menuback
-		.frontbanner
-			h1.frontheader="Tech Snippet"
-			p.fronttext="EXPLORING TECHNOLOGIES"
-			br
-			br
-			br
-			a.explore(href="#",ontouchstart="this.classList.toggle('hover');")
-				svg.svgcircle
-					circle.explorecircle
-					text.exploretext(x="50%",y="50%",text-anchor="middle")="EXPLORE"
+		.frontpagecontainer
+			.page
+				.indexpage
+					img.frontpage(src="img/Fotolia_107889582_Subscription_Monthly_M.jpg")
+					.menubar
+						.menucontainer(ontouchstart="this.classList.toggle('hover');")
+							.menu
+								.menufront
+								.menuback
+					.frontbanner
+						h1.frontheader="Tech Snippet"
+						p.fronttext="EXPLORING TECHNOLOGIES"
+						br
+						br
+						br
+						a.explore(href="#",ontouchstart="this.classList.toggle('hover');")
+							svg.svgcircle
+								circle.explorecircle
+								text.exploretext(x="50%",y="50%",text-anchor="middle")="EXPLORE"
+				.aboutpage
 					
 
 				
