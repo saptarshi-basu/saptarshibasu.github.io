@@ -46,6 +46,42 @@ module.exports = function(grunt) {
 				src: 'PlayfairDisplay-Bold.otf',
 				dest: 'font/',
 				expand: true
+			},
+			{
+				cwd: 'src/img/',
+				src: 'search_white.svg',
+				dest: 'img/',
+				expand: true
+			},
+			{
+				cwd: 'src/img/',
+				src: 'search_grey.svg',
+				dest: 'img/',
+				expand: true
+			},
+			{
+				cwd: 'src/img/',
+				src: 'multiply_white.svg',
+				dest: 'img/',
+				expand: true
+			},
+			{
+				cwd: 'src/img/',
+				src: 'multiply_grey.svg',
+				dest: 'img/',
+				expand: true
+			},
+			{
+				cwd: 'src/img/',
+				src: 'menu_white.svg',
+				dest: 'img/',
+				expand: true
+			},
+			{
+				cwd: 'src/img/',
+				src: 'menu_grey.svg',
+				dest: 'img/',
+				expand: true
 			}]
 		}
 	},

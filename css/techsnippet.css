@@ -8,7 +8,7 @@
 }
 .frontheader {
   color: white;
-  font-size: 60px;
+  font-size: 50px;
   font-family: PlayfairDisplay-Bold;
   text-align: center;
 }
@@ -18,8 +18,8 @@
 }
 .fronttext {
   color: white;
-  font-size: 30px;
-  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 15px;
+  font-family: PlayfairDisplay-Bold;
   text-align: center;
 }
 .svgcircle {
@@ -83,6 +83,72 @@
   fill-opacity: 1;
   fill: white;
   font-size: 15px;
+  font-family: PlayfairDisplay-Bold;
+}
+/*.search {
+	display:block;
+	height:80px;
+	width:80px;
+	position:relative;
+	float:right;
+	background:transparent url('../img/search_white.svg') center center no-repeat;
+	background-size:60%;
+	
+}
+
+.search:hover {
+   background:white url('../img/search_grey.svg') center center no-repeat;
+   background-size:60%;
+}*/
+.menufront {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  height: 80px;
+  width: 80px;
+  background: transparent url('../img/menu_white.svg') center center no-repeat;
+  background-size: 60%;
+  z-index: 2;
+}
+.menuback {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  height: 80px;
+  width: 80px;
+  background: white url('../img/menu_grey.svg') center center no-repeat;
+  background-size: 60%;
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+.menu {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+}
+.menucontainer {
+  height: 80px;
+  width: 80px;
+  -webkit-perspective: 1000;
+          perspective: 1000;
+  position: relative;
+  float: left;
+}
+.menucontainer:hover .menu {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+.menubar {
+  position: -webkit-sticky;
+  position: sticky;
 }
 
 /*# sourceMappingURL=maps/techsnippet.css.map */
