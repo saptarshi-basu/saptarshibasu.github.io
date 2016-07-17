@@ -4,6 +4,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 exports.addClass = addClass;
+exports.removeClass = removeClass;
 function addClass(targetElementClassName, classNameToBeAdded) {
 	var targetElements = document.getElementsByClassName(targetElementClassName);
 	for (var i = 0; i < targetElements.length; i++) {

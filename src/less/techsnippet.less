@@ -1,5 +1,7 @@
 .default-background {
 	background-color: #121212;
+	padding:0;
+	margin:0;
 }
 
 .frontpage {
@@ -109,6 +111,7 @@
 	perspective: 1000;
 	position: relative;
 	float:left;
+	cursor:pointer;
 }
 
 .menu {
@@ -146,8 +149,66 @@
 	position:sticky;
 }
 
-.frontpagecontainer {
-	height:100%;
+.aboutpage {
 	width:100%;
+	height:100%;
+	position:absolute;
+	transition: transform 1s;
+	margin-left: -100%;
+	margin-top: -100%;
+	background-color: #121212;
+	z-index:20
 }
+
+.indexpage {
+	width:100%;
+	height:100%;
+	position:absolute;
+}
+
+.aboutpage.visible {
+	transition: all .8s ease-in-out;
+	margin-left:0%;
+	margin-top:0%;
+}
+
+.closecontainer {
+	height:80px;
+	width:80px;
+	perspective: 1000;
+	position: relative;
+	float:left;
+	cursor:pointer;
+}
+
+.close {
+    transform-style: preserve-3d;
+	transition: transform 1s;
+}
+
+.closecontainer:hover .close{
+		transform: rotateY(180deg);
+}
+
+.closefront, .closeback {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display:block;
+	height:80px;
+	width:80px;
+}
+
+.closefront {
+	background:transparent url('../img/multiply_white.svg') center center no-repeat;
+	background-size:60%;
+	z-index: 20;
+}
+.closeback {
+	background:white url('../img/multiply_grey.svg') center center no-repeat;
+	background-size:60%;
+	transform: rotateY(-180deg);
+}
+
 

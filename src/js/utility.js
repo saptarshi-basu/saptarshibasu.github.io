@@ -7,7 +7,7 @@ export function addClass(targetElementClassName, classNameToBeAdded)
 	}
 }
 
-function removeClass(targetElementClassName, classNameToBeRemoved)
+export function removeClass(targetElementClassName, classNameToBeRemoved)
 {
 	var targetElements = document.getElementsByClassName(targetElementClassName);
 	for(var i=0;i<targetElements.length;i++)

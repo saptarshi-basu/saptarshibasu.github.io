@@ -14,6 +14,13 @@ function main() {
 			(0, _utility.addClass)('aboutpage', 'visible');
 		}, false);
 	}
+
+	var elements = document.getElementsByClassName('close');
+	for (var i = 0; i < elements.length; i++) {
+		elements[i].addEventListener("click", function () {
+			(0, _utility.removeClass)('aboutpage', 'visible');
+		}, false);
+	}
 }
 
 
@@ -24,6 +31,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 exports.addClass = addClass;
+exports.removeClass = removeClass;
 function addClass(targetElementClassName, classNameToBeAdded) {
 	var targetElements = document.getElementsByClassName(targetElementClassName);
 	for (var i = 0; i < targetElements.length; i++) {
