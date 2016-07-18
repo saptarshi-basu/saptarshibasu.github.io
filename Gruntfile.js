@@ -24,18 +24,6 @@ module.exports = function(grunt) {
 	copy: {
 		dev: {
 			files: [{
-				cwd: 'node_modules/bootstrap/dist/css/',
-				src: 'bootstrap-theme.css',
-				dest: 'css/',
-				expand: true
-			},
-			{
-				cwd: 'node_modules/bootstrap/dist/css/',
-				src: 'bootstrap.css',
-				dest: 'css/',
-				expand: true
-			},
-			{
 				cwd: 'src/img/',
 				src: '*.*',
 				dest: 'img/',
