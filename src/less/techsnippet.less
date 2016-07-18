@@ -25,38 +25,6 @@
 	text-align: center;
 }
 
-.svgcircle{
-	height:105px;
-	width:105px;
-}
-
-.explorecircle {
-	height:105px;
-	width:105px;
-	cx:50;
-	cy:50;
-	r:49;
-	fill:transparent;
-	stroke:white;
-	stroke-opacity:0.5;
-	stroke-width:3px;
-	stroke-dasharray: 500;
-}
-
-@keyframes showcircle {
-  from {
-    stroke-dashoffset: 500;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-.explore:hover .explorecircle {
-	animation: showcircle 1s;
-	stroke-opacity:1;
-}
-
 .frontbanner {
 	top:150px;
 	position:absolute;
@@ -264,6 +232,8 @@ p.aboutpagetext {
 .explorebutton:hover
 {
 	box-shadow:0 0 20px white;
+	background-color:#A38F84;
+	opacity:0.6;
 }
 
 .explorebutton p {
