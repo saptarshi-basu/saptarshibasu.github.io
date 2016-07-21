@@ -7,7 +7,8 @@ module.exports = function(grunt) {
           pretty: true,
         },
         files: {
-          'index.html': 'src/jade/index.jade'
+          'index.html': 'src/jade/index.jade',
+		  'explore.html': 'src/jade/explore.jade'
         }
       }
     },
@@ -17,7 +18,8 @@ module.exports = function(grunt) {
           paths: ['test/fixtures/include']
         },
         files: {
-          'css/techsnippet.css': 'src/less/techsnippet.less'
+          'css/techsnippet.css': 'src/less/techsnippet.less',
+		  'css/explore.css': 'src/less/explore.less'
         }
       }
 	},

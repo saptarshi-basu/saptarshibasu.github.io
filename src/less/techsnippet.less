@@ -1,5 +1,5 @@
 .default-background {
-	background-color: #6797A1;
+	background-color: #00B5B5;
 	padding:0;
 	margin:0;
 }
@@ -107,8 +107,15 @@
 	transition: transform 1s;
 	margin-left: -100%;
 	margin-top: -100%;
-	background-color: #6797A1;
+	background-color: #00B5B5;
 	z-index:20
+}
+
+
+
+.aboutpage a {
+	text-decoration: none;
+	color: yellow;
 }
 
 .indexpage {
@@ -173,35 +180,6 @@
 }
 
 
-.searchtext {
-	float:right;
-	display:block;
-	height:40px;
-	width:30%;
-	opacity:0.8;
-	margin-top:15px;
-	margin-right:5px;
-	border:0;
-}
-
-.searchtext:active {
-   	border: solid 1px #707070;
-	box-shadow: 0 0 5px 1px #969696;
-	width:40%;
-	animation: textboxanimation 1s;
-}
-
-@keyframes textboxanimation {
-  from {
-   	border: 0;
-	width:30%;
-  }
-  to {
-   	border: solid 1px #707070;
-	box-shadow: 0 0 5px 1px #969696;
-	width:40%;
-  }
-}
 
 h1.aboutpagetext {
 	color: white;
@@ -218,6 +196,17 @@ p.aboutpagetext {
 	text-align: center;
 	position:relative;
 	padding:30px;
+	padding:0;
+}
+
+p.signature {
+	color: yellow;
+	font-size:15px;
+	font-family: 'Libre Baskerville', serif;
+	text-align: center;
+	position:relative;
+	padding:30px;
+	padding:0;
 }
 
 
@@ -232,7 +221,7 @@ p.aboutpagetext {
 .explorebutton:hover
 {
 	box-shadow:0 0 20px white;
-	background-color:#A38F84;
+	background-color:#B5AFA2;
 	opacity:0.6;
 }
 
@@ -243,4 +232,8 @@ p.aboutpagetext {
 	font-family: 'Libre Baskerville', serif;
 	margin:0px;
 	cursor:pointer;	
+}
+
+.frontbanner a {
+	text-decoration: none;
 }
