@@ -10,7 +10,7 @@ html(lang="en")
 		.exploreheader
 			a.headertext(href="../index.html")="Tech Snippet"
 			input.searchtext(type="text", name="search", placeholder="Search..")
-		.article
+		#article.article
 			p Post no. - 1, Date - 23-Jul-2016
 			h1="How to run ES6 code on browser using Babel, Grunt and Browserify"
 			h5="ES6 or ECMAScript 2015, released in June 2015, brings in many amazing features and syntax in javascript. Not all of these new features are currently supported by today's web browsers. However, even in the absence of complete browser support, it is a good idea to start writing javascript using the ES6/ES7 features."
@@ -46,18 +46,18 @@ html(lang="en")
 			.code
 				p Bar called
 				p Foo called
-		#disqus_thread
-			script.
-					var disqus_config = function () {
-						this.page.url = http://techsnippet.online/articles/how_to_run_es6_code_on_browser.html;
-						this.page.identifier = how_to_run_es6_code_on_browser;
-					};
-					(function() {
-						var d = document;
-						s = d.createElement('script');
-						s.src = 'http://techsnippet.disqus.com/embed.js';
-						s.setAttribute('data-timestamp', +new Date());
-						(d.head || d.body).appendChild(s);
-					})();
-			noscript
-				Please enable JavaScript to view the a(href="https://disqus.com/?ref_noscript")="comments powered by Disqus."
+			#disqus_thread
+				script.
+						var disqus_config = function () {
+							this.page.url = "http://techsnippet.online/articles/how_to_run_es6_code_on_browser.html";
+							this.page.identifier = "how_to_run_es6_code_on_browser";
+						};
+						(function() {
+							var d = document;
+							s = d.createElement('script');
+							s.src = 'http://techsnippet.disqus.com/embed.js';
+							s.setAttribute('data-timestamp', new Date());
+							d.getElementById("article").appendChild(s);
+						})();
+				noscript
+					Please enable JavaScript to view the a(href="https://disqus.com/?ref_noscript")="comments powered by Disqus."
