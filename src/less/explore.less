@@ -2,15 +2,26 @@
 	background-color: #D8E2EC;
 }
 
+
 .exploreheader {
 	width: 100%;
 	height: 80px;
 	text-align: left;
-	position: absolute;
+	position: fixed;
 	top:0;
 	left:0;
 	background-color:#344146;
 	margin:0px;
+	z-index: 50;
+}
+
+.content {
+	top: 15%;
+	max-width: 100%;
+	display: block;
+	position:absolute;
+	margin:0;
+	pading:0;
 }
 
 .exploreheader a {
@@ -90,10 +101,6 @@
 }
 
 .article {
-	top: 15%;
-	width: 80%;
-	display: block;
-	position:absolute;
 	margin:5px;
 	padding:60px;
 	background-color: white;
@@ -104,6 +111,8 @@
 	font-weight:400;
 	font-size: 20px;
 	line-height:1.5em;
+	float:left;
+	max-width:100%;
 }
 
 .article h1 {
@@ -127,3 +136,4 @@
 	padding:10px;
 	background-color: #F0F1F5;
 }
+
