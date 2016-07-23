@@ -6,10 +6,20 @@ module.exports = function(grunt) {
         options: {
           pretty: true,
         },
-        files: {
-          'index.html': 'src/jade/index.jade',
-		  'explore.html': 'src/jade/explore.jade'
-        }
+        files: [ {
+                  src: "*.jade",
+				  dest: "./",
+                  ext: ".html",
+                  cwd: "src/jade/",
+				  expand: true
+                } ,
+				{
+                  src: "*.jade",
+                  dest: "articles/",
+                  ext: ".html",
+                  cwd: "src/jade/articles/",
+				  expand: true
+                } ]
       }
     },
 	less: {
@@ -60,6 +70,13 @@ module.exports = function(grunt) {
 				cwd: 'src/js/',
 				ext: '.js',
 				src: ['utility.js','main.js'],
+				dest: 'js/'
+            }],
+			files: [{
+                expand: true,
+				cwd: 'src/js/',
+				ext: '.js',
+				src: ['explore.js'],
 				dest: 'js/'
             }]
         }

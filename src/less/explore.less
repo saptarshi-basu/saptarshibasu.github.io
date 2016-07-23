@@ -1,5 +1,5 @@
 .default-background {
-	background-color: #E7E7E7;
+	background-color: #E6DCDB;
 }
 
 .exploreheader {
@@ -13,13 +13,14 @@
 	margin:0px;
 }
 
-.exploreheader h1 {
-	font-family: 'Libre Baskerville', serif;
-	font-size:15px;
+.exploreheader a {
+	font-family: 'Lora', serif;
+	font-size:25px;
 	float:left;
 	margin: 0px 15px;
 	color:white;
 	line-height: 80px;
+	text-decoration:none;
 }
 
 .searchtext {
@@ -38,7 +39,7 @@
 	border-radius:5px;
 	height: 30%;
 	box-shadow: 0 0 5px 1px white;
-	width:35%;
+	width:60%;
 	animation: textboxanimation 0.5s;
 	margin: 15px 15px 15px 0px;
 	float: right;
@@ -52,7 +53,7 @@
   }
   to {
 	box-shadow: 0 0 5px 1px white;
-	width:35%;
+	width:60%;
   }
 }
 
@@ -67,12 +68,18 @@
 .entry{
 	display: block;
 	background-color: white;
-	padding: 20px;
+	padding: 10px 20px 10px 20px;
 	box-shadow: 3px 3px 5px 6px #ccc;
-	
+	animation: fadeIn 1s;
+	font-family: 'Lora', serif;
 }
 
-.entry h2 {
+@keyframes fadeIn {
+    from { opacity: 0.5}
+    to { opacity: 1}
+}
+
+.entry a {
 	margin:0px;
 	padding:0px;
 }
@@ -82,12 +89,39 @@
 	padding:0px;
 }
 
-.home {
-	display:block;
-	height:80px;
-	width:80px;
-	float:left;
-	background:transparent url('../img/house.svg') center center no-repeat;
-	background-size:40%;
-	z-index: 2;
+.article {
+	top: 15%;
+	width: 80%;
+	display: block;
+	position:absolute;
+	margin:20px;
+	padding:60px;
+	background-color: white;
+	box-shadow: 3px 3px 5px 6px #ccc;
+	animation: fadeIn 1s;
+	font-family: 'Lora', serif;
+	color:#888888;
+	font-weight:400;
+	font-size: 20px;
+	line-height:1.5em;
+}
+
+.article h1 {
+	font-size:25px
+}
+
+.article h5 {
+	font-style: italic;
+}
+
+.article p {
+}
+
+.article li {
+     line-height: 1.5em;
+     height: auto;
+}
+
+.code {
+	font-family: "Courier New", Courier, monospace;
 }
