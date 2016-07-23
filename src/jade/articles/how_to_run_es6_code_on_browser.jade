@@ -23,10 +23,10 @@ html(lang="en")
 				li <a href='https://www.npmjs.com/'>npm</a> - It helps in managing the project dependencies.
 				li <a href='http://gruntjs.com/'>Grunt</a> - It is a task runner that automates the repetitive tasks such as transpiling java script, minifying javascript, minifying css etc.
 				li <a href='https://babeljs.io/'>Babel</a> - It transpiles next generation java script code (written in ES6/ES7) to older version javascript (ES5) which is suported by all browsers. Thus it allows us to write next generation javascript syntax and functions today even in the absence of complete browser support for these new language features.
-				li <a href='http://browserify.org/'>Browserify</a> - The Babel output doesn't run in browsers directly. The Babel output is still moduler - there is a one-to-one mapping between our source module files with the output files created by Babel. However, Babel uses the require() method call to support this modular approach. The require() function call comes from the CommonJs module specification which is implemented by NodeJs. Thus the Babel output is supported by NodeJs, but not by the browsers which don't implement CommonJs specification. Browserify, comes to our aid here - it combines all module files to one single file and translates the require() calls to browser compatible code.
+				li <a href='http://browserify.org/'>Browserify</a> - The Babel output doesn't run in browsers directly. The Babel output is still moduler - there is a one-to-one mapping between our source module files with the output files created by Babel. However, Babel uses the require() method call to support this modular approach. The require() function call comes from the CommonJs module specification which is implemented by NodeJs. Thus the Babel output is supported by NodeJs, but not by the browsers which don't implement CommonJs specification. Browserify, comes to our aid here - it combines all the module files to one single file and translates the require() calls to browser compatible code.
 			p With this much background, we'll now get our hands dirty and do a small project.
 			p Step 1: Install <a href="https://nodejs.org/en/">NodeJs</a>. This will automatically install npm.
-			p Step 2: Create a project folder "testproject".
+			p Step 2: Create a project folder "testproject" and change to that diretory.
 			p Step 3: Go to the command line and execute the following commands:
 			.code
 				p npm init
@@ -34,7 +34,7 @@ html(lang="en")
 				p npm install grunt-babel --save-dev
 				p npm install babel-preset-es2015 --save-dev
 				p npm install grunt-browserify --save-dev
-			p Step 4: Create the javascript file foo.js at location testproject/src/js/
+			p Step 4: Create the javascript file foo.js at the location testproject/src/js/
 			p Step 5: Create the javascript file bar.js at location testproject/src/js/
 			p Step 6: Create the html file index.html at location testproject/
 			p Step 7: Create the grunt file Gruntfile.html at location testproject/
