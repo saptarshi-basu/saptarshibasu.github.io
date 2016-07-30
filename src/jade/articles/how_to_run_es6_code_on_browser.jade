@@ -13,6 +13,7 @@ html(lang="en")
 			input.searchtext(type="text", name="search", placeholder="Search..")
 		.content
 			#article.article
+				<br/>
 				p Post no. - 1, Date - 23-Jul-2016
 				h1="How to run ES6 code on browser using Babel, Grunt and Browserify"
 				p.summary="ES6 or ECMAScript 2015, released in June 2015, brings in many amazing features and syntax in javascript. Not all of these new features are currently supported by today's web browsers. However, even in the absence of complete browser support, it is a good idea to start writing javascript using the ES6/ES7 features."
@@ -40,7 +41,8 @@ html(lang="en")
 				p Step 5: Create the javascript file bar.js at location testproject/src/js/
 				p Step 6: Create the html file index.html at location testproject/
 				p Step 7: Create the grunt file Gruntfile.html at location testproject/
-				script.comment(src="https://gist.github.com/saptarshibasu/6343c522cff62c51275dc2420fed5ea9.js")
+				.githubcode
+					script.comment(src="https://gist.github.com/saptarshibasu/6343c522cff62c51275dc2420fed5ea9.js")
 				p Step 8: Build the project by running the following command at location testproject/
 				.code
 					p grunt build
@@ -48,21 +50,22 @@ html(lang="en")
 				.code
 					p Bar called
 					p Foo called
-				#disqus_thread.comment
-					script.
-							var disqus_config = function () {
-								this.page.url = "http://techsnippet.online/articles/how_to_run_es6_code_on_browser.html";
-								this.page.identifier = "how_to_run_es6_code_on_browser";
-							};
-							(function() {
-								var d = document;
-								s = d.createElement('script');
-								s.src = 'http://techsnippet.disqus.com/embed.js';
-								s.setAttribute('data-timestamp', new Date());
-								d.getElementById("article").appendChild(s);
-							})();
-							<!-- Go to www.addthis.com/dashboard to customize your tools -->
-					
+				.githubcode
+					#disqus_thread.comment
+						script.
+								var disqus_config = function () {
+									this.page.url = "http://techsnippet.online/articles/how_to_run_es6_code_on_browser.html";
+									this.page.identifier = "how_to_run_es6_code_on_browser";
+								};
+								(function() {
+									var d = document;
+									s = d.createElement('script');
+									s.src = 'http://techsnippet.disqus.com/embed.js';
+									s.setAttribute('data-timestamp', new Date());
+									d.getElementById("article").appendChild(s);
+								})();
+								<!-- Go to www.addthis.com/dashboard to customize your tools -->
+						
 
-					noscript
-						Please enable JavaScript to view the a(href="https://disqus.com/?ref_noscript")="comments powered by Disqus."
+						noscript
+							Please enable JavaScript to view the a(href="https://disqus.com/?ref_noscript")="comments powered by Disqus."
