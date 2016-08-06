@@ -46,7 +46,7 @@
         <p>Step 7: Create an Auto Scaling launch configurtion. Assign "myrole" (configured in Step 5) to the launch configuration so that the launched EC2 instances can have access to retrieve the web application (created in Step 1) from the S3 bucket "mybucket" (created in Step 2). Additionally, supply the script text (created in Step 6) that will be executed immediately after an EC2 instance is launched. (At the time of writing this article, this is done in the 'User data' field under 'Step 3 > Create Launch Configuration > Advanced Details.)</p>
         <p>Step 8: Create an Auto Scale Group with the launch configuration (created in Step 7)</p>
         <p>The Auto Scaling Group will now the launch EC2 instances which will auto configure themselves with the web application. </p>
-        <p>Ensure that the EC2 instances can access the internet through NAT/internet gateway. At the same time the web application deployed in the EC2 instances need to be made accesible from the outside world through appropriate configuration of elastic load balancer/security group and ACL.</p>
+        <p>Ensure that the EC2 instances can access the internet through NAT/internet gateway. At the same time the web application deployed in the EC2 instances need to be made accesible from the outside world through appropriate configuration of elastic load balancer/security group and ACL. For VPC configuration, refer to the article <a href="articles/how_to_configure_a_vpc_in_aws_to_deploy_a_highly_available_web_application.html">How to configure AWS VPC to develop a highly available architecture</a></p>
         <div class="githubcode">
           <div id="disqus_thread" class="comment">
             <script>

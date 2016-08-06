@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>How to configure AWS VPC to develop a highly available architecture</title>
+    <link rel="stylesheet" href="../css/explore.css">
+    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width,initial-scale=0.5, user-scalable=no" maximum-scale="5">
+    <script src="../js/explore.js"></script>
+  </head>
+  <body class="default-background">
+    <div class="exploreheader"><a href="../index.html" class="headertext">Tech Snippet</a>
+      <input type="text" name="search" placeholder="Search.." class="searchtext">
+    </div>
+    <div class="content">
+      <div id="article" class="article"><br><br><br>
+        <p>Post no. - 3, Date - 6-Aug-2016</p>
+        <h1>How to configure AWS VPC to develop a highly available architecture</h1>
+        <p class="summary"><a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html">Virtual Private Cloud (VPC)</a> is a logically isolated network in AWS public cloud. The AWS customer can configure the VPC to resemble a traditional network in his own private data centre. In this article, we will configure a VPC and launch a web application in a highly available architecture"</p>
+        <p>The following steps will acheive this:</p>
+        <p>Step 1: Select a Region of your choice. In this article we will work with Region "US West (Oregon)".</p>
+        <p>Step 2: Create A VPC, say "myvpc" with CIDR 10.0.0.0/16. The VPC will be created along with a new Security Group, Routing Table, and Access Control List (ACL). By default the Security Group and the ACL will allow all inbound and outbound traffic. The Routing table will have rules for trafic routing within the VPC.</p>
+        <p>Step 3: Create four subnets. Note that in each of the two Availability zones, we have one public subnet and one private subnet. </p>
+        <ol>
+          <li>"public_subnet_A" - CIDR (10.0.1.0/24), Availability Zone (us-west-2a)</li>
+          <li>"public_subnet_B" - CIDR (10.0.2.0/24), Availability Zone (us-west-2b)</li>
+          <li>"private_subnet_A" - CIDR (10.0.3.0/24), Availability Zone (us-west-2a)</li>
+          <li>"private_subnet_A" - CIDR (10.0.4.0/24), Availability Zone (us-west-2b)</li>
+        </ol>
+        <div class="code">
+          <p>Note: The difference between public and private subnet is, in public subnet, the EC2 instances are accessible directly from the internet. However, the instances in the private subnet are not.</p>
+        </div>
+        <p>Step 4: Create an Internet Gateway (say "myigw") and attach it to the VPC "myvpc" (created in Step 2).</p>
+        <p>Step 5: Name the default Route Table created at the time of VPC creation in Step 2 as "public_route_table". Create a rule to route the outbound traffic 0.0.0.0/0 through internet gateway "myigw" (created in Step 4). Finally, associate the subnets "public_subnet_A" and "public_subnet_B" (created in Step 3) with the routing table.</p>
+        <p>Step 6: To make an availability zone independent architecture, create two NAT Gateways "public_nat_A" and "public_nat_B" - one for each public subnets "public_subnet_A" and "public_subnet_B". Assign an elastic IP to each NAT Gateway.</p>
+        <div class="code">
+          <p>Note: Through NAT gateways, all the instances in the private subnet will have internet access without requiring a public/elastic IP address. On the other hand, these private subnet instances will not be directly accessible from the internet.</p>
+        </div>
+        <p>Step 7: Create a new Route Table "private_route_table_A" for "myvpc" (created in Step 2). Associate the private subnet "private_subnet_A" with the Route Table. Finally create a rule to route all outbound traffic (0.0.0.0/0) through "public_nat_A".</p>
+        <p>Step 8: Similarly, create a new Route Table "private_route_table_B" for "myvpc" (created in Step 2). Associate the private subnet "private_subnet_B" with the Route Table. Finally create a rule to route all outbound traffic (0.0.0.0/0) through "public_nat_B".</p>
+        <div class="code">
+          <p>Note: In steps 7 and 8, we have routed the outbound traffic originated in a private subnet to the NAT gateway in the same Availability Zone. Thus, if one Availability Zone becomes unavailable, the other subnet in the other Availability Zone will continue its operations.</p>
+        </div>
+        <p>Step 9: Create a Security Group "private_security_group" such that it allows inbound HTTP traffic and all outbund traffic.</p>
+        <p>Step 10: Create a Load Balancer "my_lb". Assign the Security Group "private_security_group" (created in Step 9) and select the two public subnets "public_subnet_A" and "public_subnet_B" in two different Availability Zones where the load balancer instances will be launched. Finally provide details of health check service.</p>
+        <p>Step 11: Create an Auto Scaling Group as explained in the article <a href="articles/how_to_configure_an_aws_auto_scaling_group_to_deploy_web_applications.html">How to configure an AWS Auto Scaling Group to automatically install Tomcat and deploy webapp in each EC2 instances</a>. Assign the Load Balancer "my_lb" (created in Step 10) with the Auto Scaling Group.</p>
+        <p>At this stage the web application should be accessible using the Load Balancer URL.</p>
+        <div class="githubcode">
+          <div id="disqus_thread" class="comment">
+            <script>
+              var disqus_config = function () {
+              	this.page.url = "http://techsnippet.online/articles/how_to_configure_a_vpc_in_aws_to_deploy_a_highly_available_web_application.html";
+              	this.page.identifier = "how_to_configure_a_vpc_in_aws_to_deploy_a_highly_available_web_application";
+              };
+              (function() {
+              	var d = document;
+              	s = d.createElement('script');
+              	s.src = 'http://techsnippet.disqus.com/embed.js';
+              	s.setAttribute('data-timestamp', new Date());
+              	d.getElementById("article").appendChild(s);
+              })();
+              <!-- Go to www.addthis.com/dashboard to customize your tools -->
+              
+              <!-- Google Analytics -->
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+              ga('create', 'UA-81797409-1', 'auto');
+              ga('send', 'pageview');
+              
+            </script>
+            <noscript>
+              <Please>enable JavaScript to view the a(href="https://disqus.com/?ref_noscript")="comments powered by Disqus."</Please>
+            </noscript>
+            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-579ba14653bd4faf"></script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
