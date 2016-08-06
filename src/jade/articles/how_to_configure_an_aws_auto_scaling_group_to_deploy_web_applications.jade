@@ -1,0 +1,75 @@
+doctype html
+html(lang="en")
+	head
+		title="How to configure an AWS Auto Scaling Group to automatically install Tomcat and deploy webapp in each EC2 instances"
+		link(rel="stylesheet",href="../css/explore.css")
+		link(href='https://fonts.googleapis.com/css?family=Lora',rel='stylesheet',type='text/css')
+		meta(name="viewport",content="width=device-width,initial-scale=0.5, user-scalable=no",maximum-scale=5)
+		script(src="../js/explore.js")
+	body.default-background
+		.exploreheader
+			a.headertext(href="../index.html")="Tech Snippet"
+			input.searchtext(type="text", name="search", placeholder="Search..")
+		.content
+			#article.article
+				br
+				br
+				br
+				p Post no. - 2, Date - 6-Aug-2016
+				h1="How to configure an AWS Auto Scaling Group in which the EC2 instances automatically installs Tomcat and deploys webapp at launch time"
+				p.summary <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/WhatIsAutoScaling.html">Auto scaling</a> service of AWS helps maintaining an application availability. It ensures that correct number of EC2 instances are running to match the application load at a given point in time. It can be configured to launch or terminate EC2 instances based on resource (such as CPU/disk/network ) usage. In this article, we will see how the Auto Scaling functionality can automatically download and configure Apache Tomcat web server (from the internet) and deploy a test web application (from an S3 bucket) in each EC2 instances.
+				p We will follow the steps given below to acheive this:
+				p Step 1: Create a deployable Java web application. To keep it simple, we will simply create an index.html with a "Hello world" message in it. If the application contains multiple files, store it in an archive so that there is only one file to retrieve from the S3 bucket.
+				p Step 2: Create an S3 bucket (say "mybucket") to store the web application (index.html in this case). 
+				p Step 3: Store the web application in the S3 bucket (created in Step 2)
+				p Step 4: Create a policy "mypolicy" to access the web application stored in the S3 bucket. The Policy Generator can also be used to generate the same policy through a user-friendly GUI.
+				.githubcode
+					script.comment(src="https://gist.github.com/saptarshibasu/08b8319e83cefe75853c6fc1d2766dc0.js")
+				p Step 5: Create a new role "myrole". Select "Amazon EC2" as the AWS Service Roles and assign the "mypolicy" created in Step 3.
+				p Step 6: Create the EC2 instance launch script to do the following activities. The actual script is given below.
+				ol
+					li Apply all updates in the OS (Line 2)
+					li Go to home directory (Line 3)
+					li Download Tomcat (Line 4)
+					li create directory /opt/tomcat (Line 5)
+					li extract downloaded Tomcat archive at the created directory (Line 6)
+					li Change the owner of the Tomcat directory to ec2-user-friendly (Line 7)
+					li Change directory to the webapps location (Line 8)
+					li Create new directory testapp (Line 9)
+					li Change directory to the bin location (Line 10)
+					li Start up Tomcat server (Line 11)
+					li Change directory to webapp/testapp location (Line 12)
+					li Download the webapp from the S3 bucket mybucket (Line 13)
+				.githubcode
+					script.comment(src="https://gist.github.com/saptarshibasu/7860cbb74fae63ba7fcc67d4932e6124.js")
+				p Step 7: Create an Auto Scaling launch configurtion. Assign "myrole" (configured in Step 5) to the launch configuration so that the launched EC2 instances can have access to retrieve the web application (created in Step 1) from the S3 bucket "mybucket" (created in Step 2). Additionally, supply the script text (created in Step 6) that will be executed immediately after an EC2 instance is launched. (At the time of writing this article, this is done in the 'User data' field under 'Step 3 > Create Launch Configuration > Advanced Details.)
+				p Step 8: Create an Auto Scale Group with the launch configuration (created in Step 7)
+				p The Auto Scaling Group will now the launch EC2 instances which will auto configure themselves with the web application. 
+				p Ensure that the EC2 instances can access the internet through NAT/internet gateway. At the same time the web application deployed in the EC2 instances need to be made accesible from the outside world through appropriate configuration of elastic load balancer/security group and ACL.
+				.githubcode
+					#disqus_thread.comment
+						script.
+								var disqus_config = function () {
+									this.page.url = "http://techsnippet.online/articles/how_to_configure_an_aws_auto_scaling_group_to_deploy_web_applications.html";
+									this.page.identifier = "how_to_configure_an_aws_auto_scaling_group_to_deploy_web_applications";
+								};
+								(function() {
+									var d = document;
+									s = d.createElement('script');
+									s.src = 'http://techsnippet.disqus.com/embed.js';
+									s.setAttribute('data-timestamp', new Date());
+									d.getElementById("article").appendChild(s);
+								})();
+								<!-- Go to www.addthis.com/dashboard to customize your tools -->
+								
+								<!-- Google Analytics -->
+								(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+								(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+								m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+								})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+								ga('create', 'UA-81797409-1', 'auto');
+								ga('send', 'pageview');
+
+						noscript
+							Please enable JavaScript to view the a(href="https://disqus.com/?ref_noscript")="comments powered by Disqus."
+						script(type="text/javascript",src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-579ba14653bd4faf")
