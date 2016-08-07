@@ -20,7 +20,7 @@
 
 .fronttext {
 	color: white;
-	font-size:15px;
+	font-size:20px;
 	font-family: 'Lora', serif;
 	text-align: center;
 }
@@ -43,15 +43,6 @@
     to { opacity: 1; }
 }
 
-
-.exploretext {
-	stroke:white;
-	stroke-opacity:1;
-	fill-opacity:1;
-	fill:white;
-	font-size:15px;
-	font-family:'Lora', serif;
-}
 
 .menucontainer {
 	height:80px;
@@ -211,28 +202,44 @@ p.signature {
 
 
 .explorebutton {
-	border-radius:25px;
-	width: 120px;
-	height: 30px;
+	width: 150px;
+	height: 35px;
 	border: 2px solid white;
-		margin:0px auto;
+	margin:0px auto;
+	background: linear-gradient(to right, white 50%, #87766C 50%);
+	background-size: 200% 100%;
+	background-position:left bottom;
+	transition:all 0.5s ease;
 }
 
 .explorebutton:hover
 {
 	box-shadow:0 0 20px white;
-	background-color:#B5AFA2;
-	opacity:0.6;
+	background-position:right bottom;
+	transform:skewX(-15deg)
 }
 
 .explorebutton p {
 	color: white;
 	text-align: center;
-	line-height: 30px;
+	line-height: 35px;
 	font-family: 'Lora', serif;
 	margin:0px;
 	cursor:pointer;	
+	color: #344146;
+	transition:all 0.5s ease;
 }
+
+.explorebutton p:hover {
+	color: white;
+	text-align: center;
+	line-height: 35px;
+	font-family: 'Lora', serif;
+	margin:0px;
+	cursor:pointer;	
+	color: white;
+}
+
 
 .frontbanner a {
 	text-decoration: none;
