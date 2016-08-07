@@ -1,3 +1,8 @@
+html {
+background: url(../img/frontimage.jpg) no-repeat center center fixed;
+background-size: cover;
+}
+
 .default-background {
 	background-color: #344146;
 	padding:0;
@@ -16,6 +21,7 @@
 	font-size:50px;
 	font-family: 'Lora', serif;
 	text-align: center;
+	
 }
 
 .fronttext {
@@ -26,16 +32,18 @@
 }
 
 .frontbanner {
-	top:150px;
+	top:130px;
 	position:absolute;
 	animation: slideUp 1s;
 	text-align: center;
 	width:100%;
+	background-color:rgba(52, 65, 70, 0.3);
+	padding:30px;
 }
 
 @keyframes slideUp {
     from { top: 180px; opacity: 0.5}
-    to { top: 150px; opacity: 1}
+    to { top: 130px; opacity: 1}
 }
 
 @keyframes transition {
@@ -204,9 +212,10 @@ p.signature {
 .explorebutton {
 	width: 150px;
 	height: 35px;
-	border: 2px solid white;
+	border: 0px solid rgba(52, 65, 70, 0.1);
+	background-clip:padding-box;
 	margin:0px auto;
-	background: linear-gradient(to right, white 50%, #87766C 50%);
+	background: linear-gradient(to right, white 49%, #87766C 50%);
 	background-size: 200% 100%;
 	background-position:left bottom;
 	transition:all 0.5s ease;
