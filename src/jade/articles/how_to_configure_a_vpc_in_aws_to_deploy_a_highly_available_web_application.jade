@@ -40,7 +40,7 @@ html(lang="en")
 					p Note: In steps 7 and 8, we have routed the outbound traffic originated in a private subnet to the NAT gateway in the same Availability Zone. Thus, if one Availability Zone becomes unavailable, the other subnet in the other Availability Zone will continue its operations.
 				p Step 9: Create a Security Group "private_security_group" such that it allows inbound HTTP traffic and all outbund traffic.
 				p Step 10: Create a Load Balancer "my_lb". Assign the Security Group "private_security_group" (created in Step 9) and select the two public subnets "public_subnet_A" and "public_subnet_B" in two different Availability Zones where the load balancer instances will be launched. Finally provide details of health check service.
-				p Step 11: Create an Auto Scaling Group as explained in the article <a href="articles/how_to_configure_an_aws_auto_scaling_group_to_deploy_web_applications.html">How to configure an AWS Auto Scaling Group to automatically install Tomcat and deploy webapp in each EC2 instances</a>. Assign the Load Balancer "my_lb" (created in Step 10) with the Auto Scaling Group.
+				p Step 11: Create an Auto Scaling Group as explained in the article <a href="how_to_configure_an_aws_auto_scaling_group_to_deploy_web_applications.html">How to configure an AWS Auto Scaling Group to automatically install Tomcat and deploy webapp in each EC2 instances</a>. Assign the Load Balancer "my_lb" (created in Step 10) with the Auto Scaling Group.
 				p At this stage the web application should be accessible using the Load Balancer URL.
 				.githubcode
 					#disqus_thread.comment
