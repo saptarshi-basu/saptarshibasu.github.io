@@ -4,12 +4,12 @@ html(lang="en")
 		title="How to configure an AWS Auto Scaling Group to automatically install Tomcat and deploy webapp in each EC2 instances"
 		link(rel="stylesheet",href="../css/explore.css")
 		link(href='https://fonts.googleapis.com/css?family=Lora',rel='stylesheet',type='text/css')
-		meta(name="viewport",content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=5")
+		meta(name="viewport",content="width=device-width,initial-scale=0.5, minimum-scale=0.5, maximum-scale=5")
 	body.default-background
 		nav.exploreheader
 			a.headertext(href="../index.html")="Tech Snippet"
 		.articlecontent
-			article.article
+			article#article.article
 				p Post no. - 2, Date - 6-Aug-2016
 				h1="How to configure an AWS Auto Scaling Group in which the EC2 instances automatically installs Tomcat and deploys webapp at launch time"
 				p.summary <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/WhatIsAutoScaling.html">Auto scaling</a> service of AWS helps maintaining an application availability. It ensures that correct number of EC2 instances are running to match the application load at a given point in time. It can be configured to launch or terminate EC2 instances based on resource (such as CPU/disk/network ) usage. In this article, we will see how the Auto Scaling functionality can automatically download and configure Apache Tomcat web server (from the internet) and deploy a test web application (from an S3 bucket) in each EC2 instances.
