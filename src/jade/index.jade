@@ -8,23 +8,24 @@ html(lang="en")
 		meta(name="viewport",content="width=device-width,initial-scale=1")
 	body.default-background
 		.aboutpage
-			.menubar
+			nav.menubar
 				.closecontainer(ontouchstart="this.classList.toggle('hover');")
 					.close
 						.closefront
 						.closeback
-			h1.aboutpagetext="About"
-			p.aboutpagetext="I am a software architect and developer with 12+ years of experience. In Tech Snippet, I will write about Java technologies, Cloud and UI technologies from time to time."
-			p.signature
-				a(href="https://in.linkedin.com/in/saptarshibasu")="- Saptarshi Basu"
+			article
+				h1.aboutpagetext="About"
+				p.aboutpagetext="I am a software architect and developer with 12+ years of experience. In Tech Snippet, I will write about Java technologies, Cloud and UI technologies from time to time."
+				p.signature
+					a(href="https://in.linkedin.com/in/saptarshibasu")="- Saptarshi Basu"
 		.indexpage
 			img.frontpage(src="img/frontimage.jpg")
-			.menubar
+			nav.menubar
 				.menucontainer(ontouchstart="this.classList.toggle('hover');")
 					.menu
 						.menufront
 						.menuback
-			.frontbanner
+			article.frontbanner
 				h1.frontheader="Tech Snippet"
 				p.fronttext="EXPLORING TECHNOLOGIES"
 				br
