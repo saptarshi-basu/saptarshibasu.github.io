@@ -4,15 +4,12 @@
     <title>How to configure an AWS Auto Scaling Group to automatically install Tomcat and deploy webapp in each EC2 instances</title>
     <link rel="stylesheet" href="../css/explore.css">
     <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet" type="text/css">
-    <meta name="viewport" content="width=device-width,initial-scale=0.5, user-scalable=no" maximum-scale="5">
-    <script src="../js/explore.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=5">
   </head>
   <body class="default-background">
-    <div class="exploreheader"><a href="../index.html" class="headertext">Tech Snippet</a>
-      <input type="text" name="search" placeholder="Search.." class="searchtext">
-    </div>
-    <div class="content">
-      <div id="article" class="article"><br><br><br>
+    <nav class="exploreheader"><a href="../index.html" class="headertext">Tech Snippet</a></nav>
+    <div class="articlecontent">
+      <article class="article">
         <p>Post no. - 2, Date - 6-Aug-2016</p>
         <h1>How to configure an AWS Auto Scaling Group in which the EC2 instances automatically installs Tomcat and deploys webapp at launch time</h1>
         <p class="summary"><a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/WhatIsAutoScaling.html">Auto scaling</a> service of AWS helps maintaining an application availability. It ensures that correct number of EC2 instances are running to match the application load at a given point in time. It can be configured to launch or terminate EC2 instances based on resource (such as CPU/disk/network ) usage. In this article, we will see how the Auto Scaling functionality can automatically download and configure Apache Tomcat web server (from the internet) and deploy a test web application (from an S3 bucket) in each EC2 instances.</p>
@@ -78,7 +75,7 @@
             <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-579ba14653bd4faf"></script>
           </div>
         </div>
-      </div>
+      </article>
     </div>
   </body>
 </html>

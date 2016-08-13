@@ -71,13 +71,6 @@ module.exports = function(grunt) {
 				ext: '.js',
 				src: ['utility.js','main.js'],
 				dest: 'js/'
-            }],
-			files: [{
-                expand: true,
-				cwd: 'src/js/',
-				ext: '.js',
-				src: ['explore.js'],
-				dest: 'js/'
             }]
         }
     },
