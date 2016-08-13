@@ -10,6 +10,9 @@ html(lang="en")
 			a.headertext(href="../index.html")="Tech Snippet"
 		.articlecontent
 			article#article.article
+				br
+				br
+				br
 				p Post no. - 1, Date - 23-Jul-2016
 				h1="How to run ES6 code on browser using Babel, Grunt and Browserify"
 				p.summary="ES6 or ECMAScript 2015, released in June 2015, brings in many amazing features and syntax in javascript. Not all of these new features are currently supported by today's web browsers. However, even in the absence of complete browser support, it is a good idea to start writing javascript using the ES6/ES7 features."
@@ -24,25 +27,25 @@ html(lang="en")
 					li <a href='https://babeljs.io/'>Babel</a> - It transpiles next generation java script code (written in ES6/ES7) to older version javascript (ES5) which is suported by all browsers. Thus it allows us to write next generation javascript syntax and functions today even in the absence of complete browser support for these new language features.
 					li <a href='http://browserify.org/'>Browserify</a> - The Babel output doesn't run in browsers directly. The Babel output is still moduler - there is a one-to-one mapping between our source module files with the output files created by Babel. However, Babel uses the require() method call to support this modular approach. The require() function call comes from the CommonJs module specification which is implemented by NodeJs. Thus the Babel output is supported by NodeJs, but not by the browsers which don't implement CommonJs specification. Browserify, comes to our aid here - it combines all the module files to one single file and translates the require() calls to browser compatible code.
 				p With this much background, we'll now get our hands dirty and do a small project.
-				p Step 1: Install <a href="https://nodejs.org/en/">NodeJs</a>. This will automatically install npm.
-				p Step 2: Create a project folder "testproject" and change to that diretory.
-				p Step 3: Go to the command line and execute the following commands:
+				p <strong>Step 1</strong>: Install <a href="https://nodejs.org/en/">NodeJs</a>. This will automatically install npm.
+				p <strong>Step 2</strong>: Create a project folder "testproject" and change to that diretory.
+				p <strong>Step 3</strong>: Go to the command line and execute the following commands:
 				.code
 					p npm init
 					p npm install grunt --save-dev
 					p npm install grunt-babel --save-dev
 					p npm install babel-preset-es2015 --save-dev
 					p npm install grunt-browserify --save-dev
-				p Step 4: Create the javascript file foo.js at the location testproject/src/js/
-				p Step 5: Create the javascript file bar.js at location testproject/src/js/
-				p Step 6: Create the html file index.html at location testproject/
-				p Step 7: Create the grunt file Gruntfile.html at location testproject/
+				p <strong>Step 4</strong>: Create the javascript file foo.js at the location testproject/src/js/
+				p <strong>Step 5</strong>: Create the javascript file bar.js at location testproject/src/js/
+				p <strong>Step 6</strong>: Create the html file index.html at location testproject/
+				p <strong>Step 7</strong>: Create the grunt file Gruntfile.html at location testproject/
 				.githubcode
 					script.comment(src="https://gist.github.com/saptarshibasu/6343c522cff62c51275dc2420fed5ea9.js")
-				p Step 8: Build the project by running the following command at location testproject/
+				p <strong>Step 8</strong>: Build the project by running the following command at location testproject/
 				.code
 					p grunt build
-				p Step 9: Open in a browser index.html at location testproject/ and check the output in browser console. The ouput should be as below:
+				p <strong>Step 9</strong>: Open in a browser index.html at location testproject/ and check the output in browser console. The ouput should be as below:
 				.code
 					p Bar called
 					p Foo called
