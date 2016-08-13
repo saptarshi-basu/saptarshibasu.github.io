@@ -2,21 +2,26 @@
 <html lang="en">
   <head>
     <title>How to configure AWS VPC to develop a highly available architecture</title>
-    <link rel="stylesheet" href="../css/explore.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../css/article.css">
     <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width,initial-scale=0.5, minimum-scale=0.5, maximum-scale=5">
   </head>
   <body class="default-background">
-    <nav class="exploreheader"><a href="../index.html" class="headertext">Tech Snippet</a></nav>
-    <div class="articlecontent">
-      <article id="article" class="article"><br><br><br>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header"><a href="../index.html" class="navbar-brand">Tech Snippet</a></div>
+      </div>
+    </nav>
+    <div class="panel panel-default">
+      <article id="article" class="panel-body">
         <p>Post no. - 3, Date - 6-Aug-2016</p>
-        <h1>How to configure AWS VPC to develop a highly available architecture</h1>
-        <p class="summary"><a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html">Virtual Private Cloud (VPC)</a> is a logically isolated network in AWS public cloud. The AWS customer can configure the VPC to resemble a traditional network in his own private data centre. In this article, we will configure a VPC and launch a web application in a highly available architecture"</p>
+        <h1>How to configure AWS VPC to develop a highly available architecture</h1><em class="lead"><a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html">Virtual Private Cloud (VPC)</a> is a logically isolated network in AWS public cloud. The AWS customer can configure the VPC to resemble a traditional network in his own private data centre. In this article, we will configure a VPC and launch a web application in a highly available architecture"</em>
         <p>The following steps will acheive this:</p>
-        <p><strong>Step 1</strong>: Select a Region of your choice. In this article we will work with Region "US West (Oregon)".</p>
-        <p><strong>Step 2</strong>: Create A VPC, say "myvpc" with CIDR 10.0.0.0/16. The VPC will be created along with a new Security Group, Routing Table, and Access Control List (ACL). By default the Security Group and the ACL will allow all inbound and outbound traffic. The Routing table will have rules for trafic routing within the VPC.</p>
-        <p><strong>Step 3</strong>: Create four subnets. Note that in each of the two Availability zones, we have one public subnet and one private subnet. </p>
+        <p><span class="label label-primary">Step 1</span> Select a Region of your choice. In this article we will work with Region "US West (Oregon)".</p>
+        <p><span class="label label-primary">Step 2</span> Create A VPC, say "myvpc" with CIDR 10.0.0.0/16. The VPC will be created along with a new Security Group, Routing Table, and Access Control List (ACL). By default the Security Group and the ACL will allow all inbound and outbound traffic. The Routing table will have rules for trafic routing within the VPC.</p>
+        <p><span class="label label-primary">Step 3</span> Create four subnets. Note that in each of the two Availability zones, we have one public subnet and one private subnet. </p>
         <ol>
           <li>"public_subnet_A" - CIDR (10.0.1.0/24), Availability Zone (us-west-2a)</li>
           <li>"public_subnet_B" - CIDR (10.0.2.0/24), Availability Zone (us-west-2b)</li>
@@ -26,20 +31,20 @@
         <div class="code">
           <p>Note: The difference between public and private subnet is, in public subnet, the EC2 instances are accessible directly from the internet. However, the instances in the private subnet are not.</p>
         </div>
-        <p><strong>Step 4</strong>: Create an Internet Gateway (say "myigw") and attach it to the VPC "myvpc" (created in Step 2).</p>
-        <p><strong>Step 5</strong>: Name the default Route Table created at the time of VPC creation in Step 2 as "public_route_table". Create a rule to route the outbound traffic 0.0.0.0/0 through internet gateway "myigw" (created in Step 4). Finally, associate the subnets "public_subnet_A" and "public_subnet_B" (created in Step 3) with the routing table.</p>
-        <p><strong>Step 6</strong>: To make an availability zone independent architecture, create two NAT Gateways "public_nat_A" and "public_nat_B" - one for each public subnets "public_subnet_A" and "public_subnet_B". Assign an elastic IP to each NAT Gateway.</p>
+        <p><span class="label label-primary">Step 4</span> Create an Internet Gateway (say "myigw") and attach it to the VPC "myvpc" (created in Step 2).</p>
+        <p><span class="label label-primary">Step 5</span> Name the default Route Table created at the time of VPC creation in Step 2 as "public_route_table". Create a rule to route the outbound traffic 0.0.0.0/0 through internet gateway "myigw" (created in Step 4). Finally, associate the subnets "public_subnet_A" and "public_subnet_B" (created in Step 3) with the routing table.</p>
+        <p><span class="label label-primary">Step 6</span> To make an availability zone independent architecture, create two NAT Gateways "public_nat_A" and "public_nat_B" - one for each public subnets "public_subnet_A" and "public_subnet_B". Assign an elastic IP to each NAT Gateway.</p>
         <div class="code">
           <p>Note: Through NAT gateways, all the instances in the private subnet will have internet access without requiring a public/elastic IP address. On the other hand, these private subnet instances will not be directly accessible from the internet.</p>
         </div>
-        <p><strong>Step 7</strong>: Create a new Route Table "private_route_table_A" for "myvpc" (created in Step 2). Associate the private subnet "private_subnet_A" with the Route Table. Finally create a rule to route all outbound traffic (0.0.0.0/0) through "public_nat_A".</p>
-        <p><strong>Step 8</strong>: Similarly, create a new Route Table "private_route_table_B" for "myvpc" (created in Step 2). Associate the private subnet "private_subnet_B" with the Route Table. Finally create a rule to route all outbound traffic (0.0.0.0/0) through "public_nat_B".</p>
+        <p><span class="label label-primary">Step 7</span> Create a new Route Table "private_route_table_A" for "myvpc" (created in Step 2). Associate the private subnet "private_subnet_A" with the Route Table. Finally create a rule to route all outbound traffic (0.0.0.0/0) through "public_nat_A".</p>
+        <p><span class="label label-primary">Step 8</span> Similarly, create a new Route Table "private_route_table_B" for "myvpc" (created in Step 2). Associate the private subnet "private_subnet_B" with the Route Table. Finally create a rule to route all outbound traffic (0.0.0.0/0) through "public_nat_B".</p>
         <div class="code">
           <p>Note: In steps 7 and 8, we have routed the outbound traffic originated in a private subnet to the NAT gateway in the same Availability Zone. Thus, if one Availability Zone becomes unavailable, the other subnet in the other Availability Zone will continue its operations.</p>
         </div>
-        <p><strong>Step 9</strong>: Create a Security Group "private_security_group" such that it allows inbound HTTP traffic and all outbund traffic.</p>
-        <p><strong>Step 10</strong>: Create a Load Balancer "my_lb". Assign the Security Group "private_security_group" (created in Step 9) and select the two public subnets "public_subnet_A" and "public_subnet_B" in two different Availability Zones where the load balancer instances will be launched. Finally provide details of health check service.</p>
-        <p><strong>Step 11</strong>: Create an Auto Scaling Group as explained in the article <a href="how_to_configure_an_aws_auto_scaling_group_to_deploy_web_applications.html">How to configure an AWS Auto Scaling Group to automatically install Tomcat and deploy webapp in each EC2 instances</a>. Assign the Load Balancer "my_lb" (created in Step 10) with the Auto Scaling Group.</p>
+        <p><span class="label label-primary">Step 9</span> Create a Security Group "private_security_group" such that it allows inbound HTTP traffic and all outbund traffic.</p>
+        <p><span class="label label-primary">Step 10</span> Create a Load Balancer "my_lb". Assign the Security Group "private_security_group" (created in Step 9) and select the two public subnets "public_subnet_A" and "public_subnet_B" in two different Availability Zones where the load balancer instances will be launched. Finally provide details of health check service.</p>
+        <p><span class="label label-primary">Step 11</span> Create an Auto Scaling Group as explained in the article <a href="how_to_configure_an_aws_auto_scaling_group_to_deploy_web_applications.html">How to configure an AWS Auto Scaling Group to automatically install Tomcat and deploy webapp in each EC2 instances</a>. Assign the Load Balancer "my_lb" (created in Step 10) with the Auto Scaling Group.</p>
         <p>At this stage the web application should be accessible using the Load Balancer URL.</p>
         <div class="githubcode">
           <div id="disqus_thread" class="comment">

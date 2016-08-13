@@ -29,7 +29,8 @@ module.exports = function(grunt) {
         },
         files: {
           'css/techsnippet.css': 'src/less/techsnippet.less',
-		  'css/explore.css': 'src/less/explore.less'
+		  'css/explore.css': 'src/less/explore.less',
+		  'css/article.css': 'src/less/article.less'
         }
       }
 	},
@@ -40,7 +41,21 @@ module.exports = function(grunt) {
 				src: '*.*',
 				dest: 'img/',
 				expand: true
-			}]
+			},
+			{
+				cwd: 'src/font/',
+				src: '*.*',
+				dest: 'font/',
+				expand: true
+			},
+			{
+				cwd: 'src/css/',
+				src: '*min.*',
+				dest: 'css/',
+				expand: true
+			}
+
+			]
 		}
 	},
 	postcss: {

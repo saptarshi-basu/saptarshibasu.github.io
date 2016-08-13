@@ -2,17 +2,22 @@
 <html lang="en">
   <head>
     <title>How to run ES6 code on browser using Babel, Grunt and Browserify</title>
-    <link rel="stylesheet" href="../css/explore.css">
+    <link rel="stylesheet" href="../css/article.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
     <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width,initial-scale=0.5, minimum-scale=0.5, maximum-scale=5">
   </head>
   <body class="default-background">
-    <nav class="exploreheader"><a href="../index.html" class="headertext">Tech Snippet</a></nav>
-    <div class="articlecontent">
-      <article id="article" class="article"><br><br><br>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header"><a href="../index.html" class="navbar-brand">Tech Snippet</a></div>
+      </div>
+    </nav>
+    <div class="panel panel-default">
+      <article id="article" class="panel-body">
         <p>Post no. - 1, Date - 23-Jul-2016</p>
-        <h1>How to run ES6 code on browser using Babel, Grunt and Browserify</h1>
-        <p class="summary">ES6 or ECMAScript 2015, released in June 2015, brings in many amazing features and syntax in javascript. Not all of these new features are currently supported by today's web browsers. However, even in the absence of complete browser support, it is a good idea to start writing javascript using the ES6/ES7 features.</p>
+        <h2>How to run ES6 code on browser using Babel, Grunt and Browserify</h2><em class="lead">ES6 or ECMAScript 2015, released in June 2015, brings in many amazing features and syntax in javascript. Not all of these new features are currently supported by today's web browsers. However, even in the absence of complete browser support, it is a good idea to start writing javascript using the ES6/ES7 features.</em>
         <p>There are two reasons for this:</p>
         <ol>
           <li>ES6/ES7 syntax promotes cleaner and maintainable code</li>
@@ -26,32 +31,26 @@
           <li><a href='http://browserify.org/'>Browserify</a> - The Babel output doesn't run in browsers directly. The Babel output is still moduler - there is a one-to-one mapping between our source module files with the output files created by Babel. However, Babel uses the require() method call to support this modular approach. The require() function call comes from the CommonJs module specification which is implemented by NodeJs. Thus the Babel output is supported by NodeJs, but not by the browsers which don't implement CommonJs specification. Browserify, comes to our aid here - it combines all the module files to one single file and translates the require() calls to browser compatible code.</li>
         </ol>
         <p>With this much background, we'll now get our hands dirty and do a small project.</p>
-        <p><strong>Step 1</strong>: Install <a href="https://nodejs.org/en/">NodeJs</a>. This will automatically install npm.</p>
-        <p><strong>Step 2</strong>: Create a project folder "testproject" and change to that diretory.</p>
-        <p><strong>Step 3</strong>: Go to the command line and execute the following commands:</p>
-        <div class="code">
+        <p><span class="label label-primary">Step 1</span> Install <a href="https://nodejs.org/en/">NodeJs</a>. This will automatically install npm.</p>
+        <p><span class="label label-primary">Step 2</span> Create a project folder "testproject" and change to that diretory.</p>
+        <p><span class="label label-primary">Step 3</span> Go to the command line and execute the following commands:</p><code>
           <p>npm init</p>
           <p>npm install grunt --save-dev</p>
           <p>npm install grunt-babel --save-dev</p>
           <p>npm install babel-preset-es2015 --save-dev</p>
-          <p>npm install grunt-browserify --save-dev</p>
-        </div>
-        <p><strong>Step 4</strong>: Create the javascript file foo.js at the location testproject/src/js/</p>
-        <p><strong>Step 5</strong>: Create the javascript file bar.js at location testproject/src/js/</p>
-        <p><strong>Step 6</strong>: Create the html file index.html at location testproject/</p>
-        <p><strong>Step 7</strong>: Create the grunt file Gruntfile.html at location testproject/</p>
+          <p>npm install grunt-browserify --save-dev</p></code>
+        <p><span class="label label-primary">Step 4</span> Create the javascript file foo.js at the location testproject/src/js/</p>
+        <p><span class="label label-primary">Step 5</span> Create the javascript file bar.js at location testproject/src/js/</p>
+        <p><span class="label label-primary">Step 6</span> Create the html file index.html at location testproject/</p>
+        <p><span class="label label-primary">Step 7</span> Create the grunt file Gruntfile.html at location testproject/</p>
         <div class="githubcode">
           <script src="https://gist.github.com/saptarshibasu/6343c522cff62c51275dc2420fed5ea9.js" class="comment"></script>
         </div>
-        <p><strong>Step 8</strong>: Build the project by running the following command at location testproject/</p>
-        <div class="code">
-          <p>grunt build</p>
-        </div>
-        <p><strong>Step 9</strong>: Open in a browser index.html at location testproject/ and check the output in browser console. The ouput should be as below:</p>
-        <div class="code">
+        <p><span class="label label-primary">Step 8</span> Build the project by running the following command at location testproject/</p><code>
+          <p>grunt build</p></code>
+        <p><span class="label label-primary">Step 9</span> Open in a browser index.html at location testproject/ and check the output in browser console. The ouput should be as below:</p><code>
           <p>Bar called</p>
-          <p>Foo called</p>
-        </div>
+          <p>Foo called</p></code>
         <div class="githubcode">
           <div id="disqus_thread" class="comment">
             <script>
