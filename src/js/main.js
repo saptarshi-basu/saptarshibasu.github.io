@@ -36,10 +36,20 @@ function main()
 			}, false);
 	}
 
-	let jumbotronHeight = getHeight("jumbotron");
+	/*let jumbotronHeight = getHeight("jumbotron");
 	window.addEventListener("scroll",
 		function() {
 			let scrollTop = window.scrollY;
-			changeHeight("jumbotronbackground",jumbotronHeight-scrollTop);
-		});
+			let now = Date.now;
+			let previous=0;
+			if(previous==0 ||now - previous >= 5000)
+			{
+				console.log(now - previous);
+				previous=Date.now;
+				if(jumbotronHeight-scrollTop>=0)
+				{
+					changeHeight("jumbotronbackground",jumbotronHeight-scrollTop);
+				}
+			}
+		});*/
 }
