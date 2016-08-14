@@ -2,36 +2,56 @@ doctype html
 html(lang="en")
 	head
 		title="Tech Snippet"
+		link(rel="stylesheet",href="css/bootstrap.min.css")
+		link(rel="stylesheet",href="css/bootstrap-theme.min.css")
 		link(rel="stylesheet",href="css/techsnippet.css")
 		script(src="js/techsnippet.js")
 		link(href='https://fonts.googleapis.com/css?family=Lora',rel='stylesheet',type='text/css')
 		meta(name="viewport",content="width=device-width,initial-scale=1")
 	body.default-background
-		.aboutpage
+		article#aboutpage.aboutpage
+			h1.aboutpagetext="About Tech Snippet"
+			p.aboutpagetext="I am a software architect and developer with 12+ years of experience. In Tech Snippet, I will write about Java technologies, Cloud and UI technologies from time to time."
+			p.signature
+				a(href="https://in.linkedin.com/in/saptarshibasu")="- Saptarshi Basu"
+		#indexpage.indexpage
 			nav.menubar
-				.closecontainer(ontouchstart="this.classList.toggle('hover');")
-					.close
-						.closefront
-						.closeback
-			article
-				h1.aboutpagetext="About"
-				p.aboutpagetext="I am a software architect and developer with 12+ years of experience. In Tech Snippet, I will write about Java technologies, Cloud and UI technologies from time to time."
-				p.signature
-					a(href="https://in.linkedin.com/in/saptarshibasu")="- Saptarshi Basu"
-		.indexpage
-			img.frontpage(src="img/frontimage.jpg")
-			nav.menubar
-				.menucontainer(ontouchstart="this.classList.toggle('hover');")
+				.menucontainer(ontouchstart="this.classList.toggle('clicked');")
 					.menu
 						.menufront
 						.menuback
-			article.frontbanner
-				h1.frontheader="Tech Snippet"
-				p.fronttext="EXPLORING TECHNOLOGIES"
-				br
-				a(href="explore.html")
+			article.container
+				.jumbotron.jumbotronbackground
+					br
+					br
+					br
+					br
+					h1.text-center.header="Tech Snippet"
+					p.text-center.subheader="EXPLORING TECHNOLOGIES"
+					br
 					.explorebutton
-						p="Explore"
+						p.link="Explore"
+			section.articles
+				.row
+					.col-md-4
+						article.panel.panel-default
+							.panel-body
+								h4
+									a(href="articles/how_to_configure_a_vpc_in_aws_to_deploy_a_highly_available_web_application.html")="How to configure AWS VPC to develop a highly available architecture"
+								p Virtual Private Cloud (VPC)</a> is a logically isolated network in AWS public cloud. The AWS customer can configure the VPC to resemble a traditional network in his own private data centre. In this article, we will configure a VPC and launch a web application in a highly available architecture
+					.col-md-4
+						article.panel.panel-default
+							.panel-body
+								h4
+									a(href="articles/how_to_configure_an_aws_auto_scaling_group_to_deploy_web_applications.html")="How to configure an AWS Auto Scaling Group to automatically install Tomcat and deploy webapp in each EC2 instances"
+								p="Auto scaling service of AWS helps maintaining an application availability. It ensures that correct number of EC2 instances are running to match the application load at a given point in time. It can be configured to launch or terminate EC2 instances based on resource (such as CPU/disk/network ) usage. In this article, we will see how the Auto Scaling functionality can automatically download and configure Apache Tomcat web server (from the internet) and deploy a test web application (from an S3 bucket) in each EC2 instances." 
+					.col-md-4
+						article.panel.panel-default
+							.panel-body
+								h4
+									a(href="articles/how_to_run_es6_code_on_browser.html")="How to run ES6 code on browser using Babel, Grunt and Browserify"
+								p="ES6 or ECMAScript 2015, released in June 2015, brings in many amazing features and syntax in javascript. Not all of these new features are currently supported by today's web browsers. However, even in the absence of complete browser support, it is a good idea to start writing javascript using the ES6/ES7 features." 
+
 		script.
 			<!-- Google Analytics -->
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
