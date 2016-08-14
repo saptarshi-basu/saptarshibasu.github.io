@@ -36,10 +36,6 @@ function main() {
 	window.addEventListener("scroll", function () {
 		var scrollTop = window.scrollY;
 		(0, _utility.changeHeight)("jumbotronbackground", jumbotronHeight - scrollTop);
-		(0, _utility.changeOpacity)("explorebutton", 1 - scrollTop / 200);
-		(0, _utility.changeOpacity)("header", 1 - scrollTop / 200);
-		(0, _utility.changeOpacity)("subheader", 1 - scrollTop / 200);
-		(0, _utility.changeOpacity)("link", 1 - scrollTop / 200);
 	});
 }
 
@@ -83,7 +79,7 @@ function changeOpacity(className, opacity) {
 	var targetElements = document.getElementsByClassName(className);
 	var localOpacity = opacity < 0 ? 0 : 0;
 	for (var i = 0; i < targetElements.length; i++) {
-		targetElements[i].style.opacity = opacity;
+		targetElements[i].style.opacity = localOpacity;
 	}
 }
 

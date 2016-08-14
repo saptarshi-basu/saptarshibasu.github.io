@@ -41,9 +41,5 @@ function main()
 		function() {
 			let scrollTop = window.scrollY;
 			changeHeight("jumbotronbackground",jumbotronHeight-scrollTop);
-			changeOpacity("explorebutton",1-(scrollTop/200));
-			changeOpacity("header",1-(scrollTop/200));
-			changeOpacity("subheader",1-(scrollTop/200));
-			changeOpacity("link",1-(scrollTop/200));
 		});
 }

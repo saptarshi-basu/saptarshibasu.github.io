@@ -36,7 +36,7 @@ function changeOpacity(className, opacity) {
 	var targetElements = document.getElementsByClassName(className);
 	var localOpacity = opacity < 0 ? 0 : 0;
 	for (var i = 0; i < targetElements.length; i++) {
-		targetElements[i].style.opacity = opacity;
+		targetElements[i].style.opacity = localOpacity;
 	}
 }
 

@@ -30,7 +30,7 @@ export function changeOpacity(className, opacity) {
 	let targetElements = document.getElementsByClassName(className);
 	let localOpacity = opacity<0?0:0;
   for(let i=0; i<targetElements.length; i++) {
-    targetElements[i].style.opacity =  opacity;
+    targetElements[i].style.opacity =  localOpacity;
   }
 }
 

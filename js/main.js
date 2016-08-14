@@ -35,10 +35,6 @@ function main() {
 	window.addEventListener("scroll", function () {
 		var scrollTop = window.scrollY;
 		(0, _utility.changeHeight)("jumbotronbackground", jumbotronHeight - scrollTop);
-		(0, _utility.changeOpacity)("explorebutton", 1 - scrollTop / 200);
-		(0, _utility.changeOpacity)("header", 1 - scrollTop / 200);
-		(0, _utility.changeOpacity)("subheader", 1 - scrollTop / 200);
-		(0, _utility.changeOpacity)("link", 1 - scrollTop / 200);
 	});
 }
 //# sourceMappingURL=main.js.map
