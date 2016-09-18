@@ -1,0 +1,53 @@
+doctype html
+html(lang="en")
+	head
+		title="Downloading SVG image into PNG, JPEG & SVG"
+		link(rel="stylesheet",href="../css/techsnippet.min.css")
+		script(src="js/techsnippet.min.js")
+		meta(name="viewport",content="width=device-width,initial-scale=0.5, minimum-scale=0.5, maximum-scale=5")
+	body.default-background
+	.navbar-fixed
+		nav
+			.nav-wrapper.teal.darken-4
+				a.brand-logo.logotext(href='../index.html') Tech Snippet
+				ul#nav-mobile.right.hide-on-med-and-down
+	.article
+		.articlesummary.z-depth-2 
+			p Entry - 6, Date - 18-Sep-2016
+			h4 Downloading SVG image into PNG, JPEG & SVG
+			.chip.orange.lighten-5 SVG
+			.chip.orange.lighten-5 PNG
+			.chip.orange.lighten-5 JPEG
+			.chip.orange.lighten-5 Javascript
+
+			p Javascript can convert an SVG image into PNG/JPEG format and allow the user to download the SVG image in SVG, PNG and JPEG format.
+			
+			p See the demo <a href="../demo/download_svg_image_demo_1.html">here</a> and the source code below.
+
+			script.comment(src="https://gist.github.com/saptarshi-basu/e30da482759414d2826956c82a1b9ca1.js")
+			#disqus_thread.comment
+				script.
+					var disqus_config = function () {
+					this.page.url = "http://techsnippet.online/articles/download_svg_image_6.html";
+					this.page.identifier = "download_svg_image_6";
+					};
+					(function() {
+					var d = document;
+					s = d.createElement('script');
+					s.src = 'http://techsnippet.disqus.com/embed.js';
+					s.setAttribute('data-timestamp', new Date());
+					d.getElementById("article").appendChild(s);
+					})();
+					<!-- Go to www.addthis.com/dashboard to customize your tools -->
+								
+					<!-- Google Analytics -->
+					(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+					(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+					m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+					})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+					ga('create', 'UA-81797409-1', 'auto');
+					ga('send', 'pageview');
+
+			noscript
+				Please enable JavaScript to view the a(href="https://disqus.com/?ref_noscript")="comments powered by Disqus."
+				script(type="text/javascript",src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-579ba14653bd4faf")

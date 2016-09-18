@@ -2,56 +2,94 @@ doctype html
 html(lang="en")
 	head
 		title="Tech Snippet"
-		link(rel="stylesheet",href="css/bootstrap.min.css")
-		link(rel="stylesheet",href="css/bootstrap-theme.min.css")
-		link(rel="stylesheet",href="css/techsnippet.css")
-		script(src="js/techsnippet.js")
-		link(href='https://fonts.googleapis.com/css?family=Lora',rel='stylesheet',type='text/css')
+		link(rel="stylesheet",href="css/techsnippet.min.css")
+		script(src="js/techsnippet.min.js")
 		meta(name="viewport",content="width=device-width,initial-scale=1")
 	body.default-background
-		article#aboutpage.aboutpage
-			h1.aboutpagetext="About Tech Snippet"
-			p.aboutpagetext="I am a software architect and developer with 12+ years of experience. In Tech Snippet, I will write about Java technologies, Cloud and UI technologies from time to time."
-			p.signature
-				a(href="https://in.linkedin.com/in/saptarshibasu")="- Saptarshi Basu"
-		#indexpage.indexpage
-			nav.menubar
-				.menucontainer(ontouchstart="this.classList.toggle('clicked');")
-					.menu
-						.menufront
-						.menuback
-			article.container
-				.jumbotron.jumbotronbackground
-					br
-					br
-					br
-					br
-					h1.text-center.header="Tech Snippet"
-					p.text-center.subheader="EXPLORING TECHNOLOGIES"
-					br
-					.explorebutton
-						p.link="Explore"
-			section.articles
-				.row
-					.col-md-4
-						article.panel.panel-default
-							.panel-body
-								h4
-									a(href="articles/how_to_configure_a_vpc_in_aws_to_deploy_a_highly_available_web_application.html")="How to configure AWS VPC to develop a highly available architecture"
-								p Virtual Private Cloud (VPC)</a> is a logically isolated network in AWS public cloud. The AWS customer can configure the VPC to resemble a traditional network in his own private data centre. In this article, we will configure a VPC and launch a web application in a highly available architecture
-					.col-md-4
-						article.panel.panel-default
-							.panel-body
-								h4
-									a(href="articles/how_to_configure_an_aws_auto_scaling_group_to_deploy_web_applications.html")="How to configure an AWS Auto Scaling Group to automatically install Tomcat and deploy webapp in each EC2 instances"
-								p="Auto scaling service of AWS helps maintaining an application availability. It ensures that correct number of EC2 instances are running to match the application load at a given point in time. It can be configured to launch or terminate EC2 instances based on resource (such as CPU/disk/network ) usage. In this article, we will see how the Auto Scaling functionality can automatically download and configure Apache Tomcat web server (from the internet) and deploy a test web application (from an S3 bucket) in each EC2 instances." 
-					.col-md-4
-						article.panel.panel-default
-							.panel-body
-								h4
-									a(href="articles/how_to_run_es6_code_on_browser.html")="How to run ES6 code on browser using Babel, Grunt and Browserify"
-								p="ES6 or ECMAScript 2015, released in June 2015, brings in many amazing features and syntax in javascript. Not all of these new features are currently supported by today's web browsers. However, even in the absence of complete browser support, it is a good idea to start writing javascript using the ES6/ES7 features." 
-
+		section.homepage
+			.heroimage
+			.frontpagetext
+				br
+				br
+				br
+				br
+				br
+				br
+				br
+				br
+				br
+				h1.center-align.logotext="Tech Snippet"
+				h4.center-align.slogan="Exploring Technologies"
+		section.articles
+			.row
+				.col.l4
+					.card.hoverable
+						.card-content
+							span.card-title Downloading SVG image into PNG, JPEG & SVG
+							p Javascript can convert an SVG image into PNG/JPEG format and allow the user to download the SVG image in SVG, PNG and JPEG format.
+							.chip.orange.lighten-5 SVG
+							.chip.orange.lighten-5 PNG
+							.chip.orange.lighten-5 JPEG
+							.chip.orange.lighten-5 Javascript
+						.card-action
+							a(href="articles/download_svg_image_6.html") More
+				.col.l4
+					.card.hoverable
+						.card-content
+							span.card-title Concatenating and minifying javascript and CSS files
+							p It is a good practice to concatenate and minify all javascript files into a single file for performance reasons. Same is true for CSS.
+							.chip.orange.lighten-5 CSS
+							.chip.orange.lighten-5 Javascript
+							.chip.orange.lighten-5 Grunt
+							.chip.orange.lighten-5 Minification
+							.chip.orange.lighten-5 Uglify
+							.chip.orange.lighten-5 cssnano
+							.chip.orange.lighten-5 Concatenation
+							.chip.orange.lighten-5 grunt-contrib-concat
+						.card-action
+							a(href="articles/concate_minify_js_css_5.html") More
+				.col.l4
+					.card.hoverable
+						.card-content
+							span.card-title Transpiling ES6 into browser compatible code
+							p ES6 is currently not supported by all browsers. A Grunt task can be used to transpile ES6 into browser compatible ES5 using Babel and Browserify. 
+							.chip.orange.lighten-5 ES6
+							.chip.orange.lighten-5 Babel
+							.chip.orange.lighten-5 Browserify
+							.chip.orange.lighten-5 Grunt
+							.chip.orange.lighten-5 Transpilation
+						.card-action
+							a(href="articles/transpile_es6_4.html") More
+			.row
+				.col.l4
+					.card.hoverable
+						.card-content
+							span.card-title Compiling Less into CSS
+							p Less can be compiled into CSS using a Grunt task.
+							.chip.orange.lighten-5 Less
+							.chip.orange.lighten-5 CSS
+							.chip.orange.lighten-5 Grunt
+						.card-action
+							a(href="articles/compile_less_3.html") More
+				.col.l4
+					.card.hoverable
+						.card-content
+							span.card-title Copying files during build
+							p Font and image files are usually copied to the distribution directory during build process. A grunt task can used to do this.
+							.chip.orange.lighten-5 Grunt
+							.chip.orange.lighten-5 grunt-contrib-copy
+						.card-action
+							a(href="articles/copy_files_2.html") More
+				.col.l4
+					.card.hoverable
+						.card-content
+							span.card-title Compiling Jade into HTML
+							p Jade can be compiled into HTML using a Grunt task.
+							.chip.orange.lighten-5 Jade
+							.chip.orange.lighten-5 Grunt
+							.chip.orange.lighten-5 HTML
+						.card-action
+							a(href="articles/compile_jade_1.html") More
 		script.
 			<!-- Google Analytics -->
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Concatenating and minifying javascript and CSS files</title>
+    <link rel="stylesheet" href="../css/techsnippet.min.css">
+    <script src="js/techsnippet.min.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=0.5, minimum-scale=0.5, maximum-scale=5">
+  </head>
+  <body class="default-background"></body>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper teal darken-4"><a href="../index.html" class="brand-logo logotext">Tech Snippet</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down"></ul>
+      </div>
+    </nav>
+  </div>
+  <div class="article">
+    <div class="articlesummary z-depth-2"> 
+      <p>Entry - 5, Date - 18-Sep-2016</p>
+      <h4>Concatenating and minifying javascript and CSS files</h4>
+      <div class="chip orange lighten-5">CSS</div>
+      <div class="chip orange lighten-5">Javascript</div>
+      <div class="chip orange lighten-5">Grunt</div>
+      <div class="chip orange lighten-5">Minification</div>
+      <div class="chip orange lighten-5">Uglify</div>
+      <div class="chip orange lighten-5">cssnano</div>
+      <div class="chip orange lighten-5">Concatenation</div>
+      <div class="chip orange lighten-5">grunt-contrib-concat</div>
+      <p>It is a good practice to concatenate and minify all javascript files into a single file for performance reasons. Same is true for CSS.</p>
+      <p>An HTML page may depend on multiple javascript files and css files. Each file is downloaded in the user's system using a separate HTTP call. Hence, if all the dependent javascript files are concatenated and minified to form a single file and if the same is also done for CSS, only two HTTP requests will be sufficient - one for javascript and one for CSS. This is expected to reduce the overall load time of the web page.</p>
+      <p>The Grunt configuration file to acheive this concatenation and minification of javascript and CSS is given below:</p>
+      <script src="https://gist.github.com/saptarshi-basu/2a63c4a95d04ee6da719a1fce2fb6d27.js" class="comment"></script>
+      <div id="disqus_thread" class="comment">
+        <script>
+          var disqus_config = function () {
+          this.page.url = "http://techsnippet.online/articles/concate_minify_js_css_5.html";
+          this.page.identifier = "concate_minify_js_css_5";
+          };
+          (function() {
+          var d = document;
+          s = d.createElement('script');
+          s.src = 'http://techsnippet.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          d.getElementById("article").appendChild(s);
+          })();
+          <!-- Go to www.addthis.com/dashboard to customize your tools -->
+          			
+          <!-- Google Analytics -->
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-81797409-1', 'auto');
+          ga('send', 'pageview');
+          
+        </script>
+      </div>
+      <noscript>
+        <Please>enable JavaScript to view the a(href="https://disqus.com/?ref_noscript")="comments powered by Disqus."</Please>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-579ba14653bd4faf"></script>
+      </noscript>
+    </div>
+  </div>
+</html>

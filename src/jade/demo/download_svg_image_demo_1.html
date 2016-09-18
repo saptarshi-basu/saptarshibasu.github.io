@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Download SVG</title>
+	</head>
+	<body>
+		<div id="svg">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				<rect x="10" y="10" height="100" width="100" style="stroke:#006600; fill: #00cc00"/>
+			</svg>
+		<div>
+		<input id="buttonPNG" type="button" value="Download PNG"/>
+		<input id="buttonJPEG" type="button" value="Download JPEG"/>
+		<input id="buttonSVG" type="button" value="Download SVG"/>
+	</body>
+	<script src="jspdf.min.js"></script>
+	<script>
+		window.onload = function() {
+			var button = document.getElementById('buttonPNG');
+			button.addEventListener('click',prepareImage);
+			button = document.getElementById('buttonJPEG');
+			button.addEventListener('click',prepareImage);
+			button = document.getElementById('buttonSVG');
+			button.addEventListener('click',prepareImage);
+		};
+		
+		function prepareImage() {
+			var canvas = document.createElement('canvas');
+			var ctx = canvas.getContext('2d');
+			var data = (new XMLSerializer()).serializeToString(document.getElementById('svg').children[0]);
+			var buttonId = this.id;
+			
+			var DOMURL = window.URL || window.webkitURL || window;
+			var svgBlob = new Blob([data], {type: 'image/svg+xml;charset=utf-8'});
+			url = DOMURL.createObjectURL(svgBlob);
+			
+			if(buttonId === 'buttonSVG') {
+				downloadFile(url,'ediagramming.svg');
+				DOMURL.revokeObjectURL(url);
+			}
+			else {
+				var img = new Image();
+				img.src = url;
+				img.onload = function () {					
+					ctx.drawImage(img, 0, 0);
+					DOMURL.revokeObjectURL(url);
+
+					var imgURI;
+					if(buttonId==='buttonPNG') {
+						imgURI = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream');
+						downloadFile(imgURI,'ediagramming.png');
+					}
+					
+					if(buttonId==='buttonJPEG') {
+						imgURI = canvas.toDataURL('image/jpg').replace('image/jpg', 'image/octet-stream');
+						downloadFile(imgURI,'ediagramming.jpg');
+					}
+				};
+			}
+		}
+		
+		function downloadFile(url, filename) {
+			var evt = new MouseEvent('click', {
+				view: window,
+				bubbles: false,
+				cancelable: true
+			});
+			
+			var a = document.createElement('a');
+			a.setAttribute('target', '_blank');
+			a.setAttribute('download', filename);
+			a.setAttribute('href', url);
+			a.dispatchEvent(evt);
+		}
+	</script>
+<html>
